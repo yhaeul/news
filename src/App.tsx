@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
 import { Ticker } from './components/Ticker'
+import { TabBar, type Tab, type Viewer } from './components/TabBar'
 
 function App() {
   const [scale, setScale] = useState(1)
+  const [tab, setTab] = useState<Tab>('all')
+  const [viewer, setViewer] = useState<Viewer>('grid')
 
   useEffect(() => {
     const update = () =>
@@ -33,7 +36,13 @@ function App() {
         {/* Ticker — y:127, h:49 */}
         <Ticker />
         {/* TabBar — y:208, h:24 */}
-        <div className="absolute top-[208px] left-[175px] w-[930px] h-[24px] bg-soft" />
+        <TabBar
+          activeTab={tab}
+          subCount={0}
+          viewer={viewer}
+          onTabChange={setTab}
+          onViewerChange={setViewer}
+        />
         {/* Content — y:256, 930×388 */}
         <div className="absolute top-[256px] left-[175px] w-[930px] h-[388px] bg-soft" />
         {/* Chevron left — x:103, y:430, 24×40 */}
