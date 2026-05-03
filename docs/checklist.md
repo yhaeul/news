@@ -137,17 +137,17 @@
 
 ## 6. 언론사 워드마크 (PressWordmark)
 
-- [ ] 렌더링 기본값 — `display: inline-flex`, `flex-wrap: wrap`, `align-items: center`, `justify-content: center`, `max-width: 88%`, `word-break: keep-all`, `line-height: 1.15`
-- [ ] 기본 속성 — `name`, `color`, `weight(400|500|700)`, `family("sans"|"serif")`, `italic`, `underline` — `color`는 런타임 동적 값이므로 `style={{ color: press.color }}` 인라인 스타일 사용
-- [ ] `tracking` — CSS letter-spacing 직접 주입 (예: `"0.08em"`) — Tailwind 클래스 불가, `style` prop 사용
-- [ ] `latin: true` — 한국어 자간(-0.01em) 비활성화
-- [ ] `small: true` — 14px 적용 (긴 라틴 이름용)
-- [ ] `bg` 컬러 지정 시 — `r-sub(2px)` 배경 칩 렌더링 (이데일리 빨간, KBS WORLD 파란 등)
-- [ ] `accentChar` — 해당 인덱스 문자에 `accent` 컬러 적용
-- [ ] `accentUnder` — 해당 인덱스 문자들에 accent 색 밑줄 적용
-- [ ] `accentBg: true` — accent 문자가 색상 대신 filled chip으로 표시
-- [ ] `flag: true` — 이름 뒤 작은 빨간 깃발 글리프 추가 (아시아경제)
-- [ ] 긴 이름 2줄 줄바꿈 — 셀 내에서 자연스럽게 처리 (Korea JoongAng Daily 등)
+- [x] 렌더링 기본값 — `display: inline-flex`, `flex-wrap: wrap`, `align-items: center`, `justify-content: center`, `max-width: 88%`, `word-break: keep-all`, `line-height: 1.15`
+- [x] 기본 속성 — `name`, `color`, `weight(400|500|700)`, `family("sans"|"serif")`, `italic`, `underline` — `color`는 런타임 동적 값이므로 `style={{ color: press.color }}` 인라인 스타일 사용
+- [x] `tracking` — CSS letter-spacing 직접 주입 (예: `"0.08em"`) — Tailwind 클래스 불가, `style` prop 사용
+- [x] `latin: true` — 한국어 자간(-0.01em) 비활성화
+- [x] `small: true` — 14px 적용 (긴 라틴 이름용)
+- [x] `bg` 컬러 지정 시 — `r-sub(2px)` 배경 칩 렌더링 (이데일리 빨간, KBS WORLD 파란 등)
+- [x] `accentChar` — 해당 인덱스 문자에 `accent` 컬러 적용
+- [x] `accentUnder` — 해당 인덱스 문자들에 accent 색 밑줄 적용
+- [x] `accentBg: true` — accent 문자가 색상 대신 filled chip으로 표시
+- [x] `flag: true` — 이름 뒤 작은 빨간 깃발 글리프 추가 (아시아경제)
+- [x] 긴 이름 2줄 줄바꿈 — 셀 내에서 자연스럽게 처리 (Korea JoongAng Daily 등)
 
 ---
 
