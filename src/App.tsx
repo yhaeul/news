@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
+import { Ticker } from './components/Ticker'
 
 function App() {
   const [scale, setScale] = useState(1)
@@ -30,7 +31,7 @@ function App() {
         {/* Header — y:58, h:29 */}
         <Header />
         {/* Ticker — y:127, h:49 */}
-        <div className="absolute top-[127px] left-[175px] w-[930px] h-[49px] bg-soft" />
+        <Ticker />
         {/* TabBar — y:208, h:24 */}
         <div className="absolute top-[208px] left-[175px] w-[930px] h-[24px] bg-soft" />
         {/* Content — y:256, 930×388 */}
