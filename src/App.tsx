@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
 import { Ticker } from './components/Ticker'
 import { TabBar, type Tab, type Viewer } from './components/TabBar'
-import { GridCell } from './components/GridCell'
+import { PressGrid } from './components/PressGrid'
+import { presses } from './data/presses'
+
+const TOTAL_PAGES = 3
 
 function App() {
   const [scale, setScale] = useState(1)
   const [tab, setTab] = useState<Tab>('all')
   const [viewer, setViewer] = useState<Viewer>('grid')
+  const [page, setPage] = useState(0)
 
   useEffect(() => {
     const update = () =>
@@ -16,6 +20,14 @@ function App() {
     window.addEventListener('resize', update)
     return () => window.removeEventListener('resize', update)
   }, [])
+
+  function handleTabChange(next: Tab) {
+    setTab(next)
+    setPage(0)
+  }
+
+  const showLeft = page > 0
+  const showRight = page < TOTAL_PAGES - 1
 
   return (
     <div
@@ -41,21 +53,32 @@ function App() {
           activeTab={tab}
           subCount={0}
           viewer={viewer}
-          onTabChange={setTab}
+          onTabChange={handleTabChange}
           onViewerChange={setViewer}
         />
-        {/* Content — y:256, 930×388 */}
-        <div className="absolute top-[256px] left-[175px] w-[154px] h-[96px] bg-line">
-          <GridCell
-            press={{ name: '조선일보', color: '#14212B', weight: 700, family: 'serif' }}
-            tab={tab}
-            onOpen={() => {}}
-          />
-        </div>
+        {/* PressGrid — y:256, 930×388 */}
+        <PressGrid
+          presses={presses}
+          tab={tab}
+          page={page}
+          onOpen={() => {}}
+        />
         {/* Chevron left — x:103, y:430, 24×40 */}
-        <div className="absolute top-[430px] left-[103px] w-[24px] h-[40px] bg-line" />
+        <button
+          aria-label="이전 페이지"
+          disabled={!showLeft}
+          onClick={() => setPage(p => p - 1)}
+          className="absolute top-[430px] left-[103px] w-[24px] h-[40px] bg-line"
+          style={{ opacity: showLeft ? 1 : 0 }}
+        />
         {/* Chevron right — x:1153, y:430 */}
-        <div className="absolute top-[430px] left-[1153px] w-[24px] h-[40px] bg-line" />
+        <button
+          aria-label="다음 페이지"
+          disabled={!showRight}
+          onClick={() => setPage(p => p + 1)}
+          className="absolute top-[430px] left-[1153px] w-[24px] h-[40px] bg-line"
+          style={{ opacity: showRight ? 1 : 0 }}
+        />
       </div>
     </div>
   )

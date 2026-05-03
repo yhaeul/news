@@ -46,6 +46,7 @@ export function PressWordmark({
     letterSpacing,
     lineHeight: 1.15,
     wordBreak: 'keep-all',
+    ...(flag && { whiteSpace: 'nowrap' }),
     ...(bg && {
       backgroundColor: bg,
       borderRadius: 'var(--radius-sub)',
@@ -92,8 +93,7 @@ export function PressWordmark({
         maxWidth: '88%',
       }}
     >
-      <span style={baseStyle}>{textContent}</span>
-      {flag && <FlagGlyph />}
+      <span style={baseStyle}>{textContent}{flag && <FlagGlyph />}</span>
     </div>
   )
 }

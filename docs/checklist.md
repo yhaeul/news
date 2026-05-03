@@ -164,11 +164,11 @@
 
 ## 8. 전체 언론사 그리드 (전체 언론사 탭)
 
-- [ ] CSS Grid 6열 × 4행, gap 1px (gap이 구분선 역할)
-- [ ] 전체 크기 930×388, 그리드 배경 `#D2DAE0` (gap 색), 외곽 border 1px `#D2DAE0`
-- [ ] 총 72개 언론사, 24개씩 3페이지 페이지네이션
-- [ ] 페이지 전환 시 해당 페이지 24개 언론사로 그리드 교체
-- [ ] 1페이지: 우측 체브론만 표시 / 2페이지: 양쪽 / 3페이지: 좌측 체브론만 표시
+- [x] CSS Grid 6열 × 4행, gap 1px (gap이 구분선 역할)
+- [x] 전체 크기 930×388, 그리드 배경 `#D2DAE0` (gap 색), 외곽 border 1px `#D2DAE0`
+- [x] 총 72개 언론사, 24개씩 3페이지 페이지네이션
+- [x] 페이지 전환 시 해당 페이지 24개 언론사로 그리드 교체
+- [x] 1페이지: 우측 체브론만 표시 / 2페이지: 양쪽 / 3페이지: 좌측 체브론만 표시
 
 ---
 
@@ -261,7 +261,7 @@
 
 ## 16. 언론사 데이터
 
-- [ ] 전체 언론사 72개 목록 정의 — 각 언론사별 워드마크 속성 포함 (name, color, weight, family, italic, underline, tracking, accent, accentChar, accentUnder, accentBg, bg, flag, latin, small)
+- [x] 전체 언론사 72개 목록 정의 — 각 언론사별 워드마크 속성 포함 (name, color, weight, family, italic, underline, tracking, accent, accentChar, accentUnder, accentBg, bg, flag, latin, small)
 - [ ] 언론사별 primary 카테고리 탭 정의 (첫 진입 시 기본 탭)
 - [ ] 티커 데이터 정의 — 2개 레인 별도, 각 레인별 언론사명 + 기사 제목 목록
 - [ ] 각 언론사별 보유 카테고리 탭 목록 정의
