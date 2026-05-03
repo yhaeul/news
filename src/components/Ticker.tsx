@@ -50,7 +50,7 @@ export function Ticker() {
 
   return (
     <div
-      className="absolute top-[127px] left-[175px] w-[930px] h-[49px] bg-soft flex items-center gap-8 px-4 rounded-sm overflow-hidden outline-none"
+      className="absolute top-[127px] left-[175px] w-[930px] h-[49px] bg-soft flex items-center gap-2 px-4 overflow-hidden outline-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
