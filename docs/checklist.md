@@ -61,20 +61,20 @@
 
 ## 0. 개발 환경 설정 (Vite + React + Tailwind CSS)
 
-- [ ] Vite + React 프로젝트 생성 — `npm create vite@latest . -- --template react-ts`
-- [ ] 의존성 설치 — `npm install`
-- [ ] Tailwind CSS 설치 — `npm install -D tailwindcss @tailwindcss/vite`
-- [ ] `vite.config.ts` — `@tailwindcss/vite` 플러그인 추가
-- [ ] `src/index.css` — `@import "tailwindcss"` 추가 (v4 방식)
-- [ ] Tailwind 테마 확장 — `@theme` 블록에 디자인 토큰 등록 (컬러, 폰트, 스페이싱, 보더 반경)
-- [ ] 폰트 설치 — `npm install pretendard` 또는 CDN, IBM Plex Mono / Noto Serif KR은 Google Fonts CDN
-- [ ] `index.html` — 폰트 `<link>` 태그 추가 (Google Fonts: IBM Plex Mono, Noto Serif KR)
+- [x] Vite + React 프로젝트 생성 — `npm create vite@latest . -- --template react-ts`
+- [x] 의존성 설치 — `npm install`
+- [x] Tailwind CSS 설치 — `npm install -D tailwindcss @tailwindcss/vite`
+- [x] `vite.config.ts` — `@tailwindcss/vite` 플러그인 추가
+- [x] `src/index.css` — `@import "tailwindcss"` 추가 (v4 방식)
+- [x] Tailwind 테마 확장 — `@theme` 블록에 디자인 토큰 등록 (컬러, 폰트, 스페이싱, 보더 반경)
+- [x] 폰트 설치 — `npm install pretendard` 또는 CDN, IBM Plex Mono / Noto Serif KR은 Google Fonts CDN
+- [x] `index.html` — 폰트 `<link>` 태그 추가 (Google Fonts: IBM Plex Mono, Noto Serif KR)
 - [ ] `vite.config.ts` — 개발 서버 포트·host 설정 (필요 시)
 - [ ] 불필요한 Vite 보일러플레이트 정리 — `App.css`, 기본 카운터 컴포넌트 등 제거
 - [ ] `src/` 디렉토리 구조 설계 — `components/`, `data/`, `hooks/`, `types/` 폴더 생성
 - [ ] `clsx` + `tailwind-merge` 설치 — `npm install clsx tailwind-merge`
 - [ ] `tsconfig.json` 경로 별칭 설정 — `"paths": { "@/*": ["./src/*"] }` + `vite.config.ts` resolve.alias 동기화
-- [ ] ESLint / Prettier 설정 확인 및 팀 컨벤션 맞게 조정
+- [ ] ESLint / Prettier 설정 확인
 
 ---
 
