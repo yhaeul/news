@@ -79,14 +79,14 @@
 
 ## 1. 프로젝트 설정 & 디자인 토큰
 
-- [ ] `src/index.css` `@theme` 블록에 컬러 토큰 등록 — `--color-ink: #14212B`, `--color-sub: #5F6E76`, `--color-mute: #879298`, `--color-line: #D2DAE0`, `--color-soft: #F5F7F9`, `--color-card: #FFFFFF`, `--color-page: #FEFEFE`, `--color-accent: #7890E7`, `--color-accent-deep: #4362D0` (v4에서 CSS 변수 + `text-ink`·`bg-ink` 유틸리티 클래스 자동 생성)
-- [ ] 폰트 로드 — Pretendard Variable (본문·UI), IBM Plex Mono (탭 카운터 숫자), Noto Serif KR (세리프 워드마크)
-- [ ] 타이포그래피 토큰 — display(24/700), heading(16/700), body(16/500), list-item(14/500), caption(12/500), badge(12/500), mono-tab(12/500 IBM Plex Mono)
-- [ ] 한국어 자간 body `-0.01em` / display `-0.02em` / 라틴 `0`
-- [ ] 스페이싱 기준 8px 단위 CSS 변수 — 4, 8, 12, 16, 24, 32, 40, 48, 64
-- [ ] 보더 반경 토큰 — `r-pill: 14px`, `r-badge: 10px`, `r-sub: 2px`
-- [ ] 스트로크 규칙 — 항상 1px `#D2DAE0` 단일 사용
-- [ ] 그림자 규칙 — subscribe pill 전용 `0 1px 2px rgba(20,33,43,0.04)` 1종만
+- [x] `src/index.css` `@theme` 블록에 컬러 토큰 등록 — `--color-ink: #14212B`, `--color-sub: #5F6E76`, `--color-mute: #879298`, `--color-line: #D2DAE0`, `--color-soft: #F5F7F9`, `--color-card: #FFFFFF`, `--color-page: #FEFEFE`, `--color-accent: #7890E7`, `--color-accent-deep: #4362D0` (v4에서 CSS 변수 + `text-ink`·`bg-ink` 유틸리티 클래스 자동 생성)
+- [x] 폰트 로드 — Pretendard Variable (본문·UI), IBM Plex Mono (탭 카운터 숫자), Noto Serif KR (세리프 워드마크)
+- [x] 타이포그래피 토큰 — display(24/700), heading(16/700), body(16/500), list-item(14/500), caption(12/500), badge(12/500), mono-tab(12/500 IBM Plex Mono)
+- [x] 한국어 자간 body `-0.01em` / display `-0.02em` / 라틴 `0`
+- [x] 스페이싱 기준 8px 단위 CSS 변수 — 4, 8, 12, 16, 24, 32, 40, 48, 64
+- [x] 보더 반경 토큰 — `r-pill: 14px`, `r-badge: 10px`, `r-sub: 2px`
+- [x] 스트로크 규칙 — 항상 1px `#D2DAE0` 단일 사용
+- [x] 그림자 규칙 — subscribe pill 전용 `0 1px 2px rgba(20,33,43,0.04)` 1종만
 
 ---
 
