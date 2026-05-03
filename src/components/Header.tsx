@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react'
 
+function getDateString() {
+  const now = new Date()
+  const year = now.getFullYear()
+  const month = String(now.getMonth() + 1).padStart(2, '0')
+  const date = String(now.getDate()).padStart(2, '0')
+  const dayNames = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
+  return `${year}. ${month}. ${date}. ${dayNames[now.getDay()]}`
+}
+
 export function Header() {
-  const [dateString, setDateString] = useState('')
+  const [dateString, setDateString] = useState(getDateString)
 
   useEffect(() => {
-    const formatDate = () => {
-      const now = new Date()
-      const year = now.getFullYear()
-      const month = String(now.getMonth() + 1).padStart(2, '0')
-      const date = String(now.getDate()).padStart(2, '0')
-
-      const dayNames = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
-      const dayName = dayNames[now.getDay()]
-
-      setDateString(`${year}. ${month}. ${date}. ${dayName}`)
-    }
-
-    formatDate()
+    const now = new Date()
+    const msUntilMidnight =
+      new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - now.getTime()
+    const id = setTimeout(() => setDateString(getDateString()), msUntilMidnight)
+    return () => clearTimeout(id)
   }, [])
 
   return (
@@ -44,6 +45,7 @@ export function Header() {
           style={{
             fontSize: 'var(--text-display)',
             fontWeight: 700,
+            lineHeight: 1,
             letterSpacing: 'var(--tracking-ko-display)',
           }}
         >
