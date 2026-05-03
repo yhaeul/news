@@ -69,12 +69,11 @@
 - [x] Tailwind 테마 확장 — `@theme` 블록에 디자인 토큰 등록 (컬러, 폰트, 스페이싱, 보더 반경)
 - [x] 폰트 설치 — `npm install pretendard` 또는 CDN, IBM Plex Mono / Noto Serif KR은 Google Fonts CDN
 - [x] `index.html` — 폰트 `<link>` 태그 추가 (Google Fonts: IBM Plex Mono, Noto Serif KR)
-- [ ] `vite.config.ts` — 개발 서버 포트·host 설정 (필요 시)
-- [ ] 불필요한 Vite 보일러플레이트 정리 — `App.css`, 기본 카운터 컴포넌트 등 제거
-- [ ] `src/` 디렉토리 구조 설계 — `components/`, `data/`, `hooks/`, `types/` 폴더 생성
-- [ ] `clsx` + `tailwind-merge` 설치 — `npm install clsx tailwind-merge`
-- [ ] `tsconfig.json` 경로 별칭 설정 — `"paths": { "@/*": ["./src/*"] }` + `vite.config.ts` resolve.alias 동기화
-- [ ] ESLint / Prettier 설정 확인
+- [x] 불필요한 Vite 보일러플레이트 정리 — `App.css`, 기본 카운터 컴포넌트 등 제거
+- [x] `src/` 디렉토리 구조 설계 — `components/`, `data/`, `hooks/`, `types/` 폴더 생성
+- [x] `clsx` + `tailwind-merge` 설치 — `npm install clsx tailwind-merge`
+- [x] `tsconfig.json` 경로 별칭 설정 — `"paths": { "@/*": ["./src/*"] }` + `vite.config.ts` resolve.alias 동기화
+- [x] ESLint / Prettier 설정 확인
 
 ---
 
