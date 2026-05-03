@@ -1,6 +1,12 @@
+import { useState } from 'react'
+import { twMerge } from 'tailwind-merge'
+import { clsx, type ClassValue } from 'clsx'
 import { tickerData } from '../data/ticker'
 import type { TickerItem } from '../data/ticker'
 import { useTickerRotation } from '../hooks/useTickerRotation'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
+
+const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
 // 단일 뉴스 아이템을 표시하는 순수 UI 컴포넌트
 function TickerItemView({ item }: { item: TickerItem }) {
@@ -16,30 +22,44 @@ function TickerItemView({ item }: { item: TickerItem }) {
 function TickerLane({
   items,
   initialDelayMs,
+  isPaused,
 }: {
   items: TickerItem[]
   initialDelayMs: number
+  isPaused: boolean
 }) {
   const currentIndex = useTickerRotation({
     totalItems: items.length,
     initialDelayMs,
+    isPaused,
   })
+  const prefersReducedMotion = usePrefersReducedMotion()
   const currentItem = items[currentIndex]
 
-  // key를 변경하여 React가 컴포넌트를 새로 마운트하도록 함
-  // 이를 통해 매번 `animate-crossfade-in` 애니메이션이 다시 실행됨
+  const animationClass = !prefersReducedMotion && 'animate-crossfade-in'
+
   return (
-    <div key={currentIndex} className="flex-1 animate-crossfade-in">
+    <div key={currentIndex} className={cn('flex-1', animationClass)}>
       <TickerItemView item={currentItem} />
     </div>
   )
 }
 
 export function Ticker() {
+  const [isPaused, setIsPaused] = useState(false)
+
   return (
-    <div className="absolute top-[127px] left-[175px] w-[930px] h-[49px] bg-soft flex items-center gap-8 px-4 rounded-sm overflow-hidden">
-      <TickerLane items={tickerData.leftLane} initialDelayMs={0} />
-      <TickerLane items={tickerData.rightLane} initialDelayMs={1600} />
+    <div
+      className="absolute top-[127px] left-[175px] w-[930px] h-[49px] bg-soft flex items-center gap-8 px-4 rounded-sm overflow-hidden outline-none"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+      tabIndex={0}
+      aria-label="실시간 뉴스 티커"
+    >
+      <TickerLane items={tickerData.leftLane} initialDelayMs={0} isPaused={isPaused} />
+      <TickerLane items={tickerData.rightLane} initialDelayMs={1600} isPaused={isPaused} />
     </div>
   )
 }

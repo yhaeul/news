@@ -56,6 +56,7 @@
 |---|---|
 | `useTickerRotation.ts` | 티커 회전 타이머 — 3.2초 인터벌, hover/focus 일시정지, reduced-motion 처리 |
 | `useFieldTabProgress.ts` | FieldTab 프로그레스 — 6초 인터벌, 탭·기사 자동 전진, 순환 로직 |
+| `usePrefersReducedMotion.ts` | 사용자의 `prefers-reduced-motion` 설정을 감지, 애니메이션 비활성화에 사용 |
 
 ---
 
@@ -109,14 +110,14 @@
 
 ## 4. 뉴스 티커 (Ticker)
 
-- [ ] 두 레인 나란히 배치 (gap 8), 배경 `#F5F7F9`, height 49
-- [ ] 각 레인 — 굵은 언론사명 + 기사 제목 텍스트 표시
-- [ ] 3.2초마다 다음 항목으로 자동 회전
-- [ ] 전환 애니메이션 — crossfade 0.55s (`cubic-bezier(.4,0,.2,1)`)
-- [ ] 두 레인 오프셋 적용 — 동시에 전환되지 않도록 위상 차이
-- [ ] hover / focus 시 회전 일시정지
-- [ ] `prefers-reduced-motion` 감지 시 애니메이션 완전 비활성화
-- [ ] 그리드·리스트 뷰 전환과 무관하게 항상 동일 위치 유지
+- [x] 두 레인 나란히 배치 (gap 8), 배경 `#F5F7F9`, height 49
+- [x] 각 레인 — 굵은 언론사명 + 기사 제목 텍스트 표시
+- [x] 3.2초마다 다음 항목으로 자동 회전
+- [x] 전환 애니메이션 — crossfade 0.55s (`cubic-bezier(.4,0,.2,1)`)
+- [x] 두 레인 오프셋 적용 — 동시에 전환되지 않도록 위상 차이
+- [x] hover / focus 시 회전 일시정지
+- [x] `prefers-reduced-motion` 감지 시 애니메이션 완전 비활성화
+- [x] 그리드·리스트 뷰 전환과 무관하게 항상 동일 위치 유지
 
 ---
 
