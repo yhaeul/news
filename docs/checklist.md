@@ -153,13 +153,12 @@
 
 ## 7. 그리드 셀 (GridCell)
 
-- [ ] 기본 상태 — bg `#FFFFFF`, 워드마크 중앙 정렬, 셀 크기 ~154×96
-- [ ] hover 상태 — bg `#F5F7F9`, 워드마크 숨김, pill 표시
-- [ ] "전체 언론사" 탭 hover → "+ 구독하기" pill 표시
-- [ ] "내가 구독한 언론사" 탭 hover → "− 해지하기" pill 표시
-- [ ] hover 시 흰색 손 커서 글리프 (18×22) pill 아래 표시 (선택)
-- [ ] 클릭 시 해당 언론사 PressOpen으로 전환
-- [ ] 키보드 `:focus-within` 시 hover와 동일한 시각 효과 적용
+- [x] 기본 상태 — bg `#FFFFFF`, 워드마크 중앙 정렬, 셀 크기 ~154×96
+- [x] hover 상태 — bg `#F5F7F9`, 워드마크 숨김, pill 표시
+- [x] "전체 언론사" 탭 hover → "+ 구독하기" pill 표시
+- [x] "내가 구독한 언론사" 탭 hover → "− 해지하기" pill 표시
+- [x] 클릭 시 해당 언론사 PressOpen으로 전환
+- [x] 키보드 `:focus-within` 시 hover와 동일한 시각 효과 적용
 
 ---
 

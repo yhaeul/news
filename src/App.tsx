@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
 import { Ticker } from './components/Ticker'
 import { TabBar, type Tab, type Viewer } from './components/TabBar'
+import { GridCell } from './components/GridCell'
 
 function App() {
   const [scale, setScale] = useState(1)
@@ -44,7 +45,13 @@ function App() {
           onViewerChange={setViewer}
         />
         {/* Content — y:256, 930×388 */}
-        <div className="absolute top-[256px] left-[175px] w-[930px] h-[388px] bg-soft" />
+        <div className="absolute top-[256px] left-[175px] w-[154px] h-[96px] bg-line">
+          <GridCell
+            press={{ name: '조선일보', color: '#14212B', weight: 700, family: 'serif' }}
+            tab={tab}
+            onOpen={() => {}}
+          />
+        </div>
         {/* Chevron left — x:103, y:430, 24×40 */}
         <div className="absolute top-[430px] left-[103px] w-[24px] h-[40px] bg-line" />
         {/* Chevron right — x:1153, y:430 */}
