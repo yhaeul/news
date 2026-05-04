@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #14212B;
+  --color-sub: #5F6E76;
+  --color-mute: #879298;
+  --color-line: #D2DAE0;
+  --color-soft: #F5F7F9;
+  --color-card: #FFFFFF;
+  --color-page: #FEFEFE;
+  --color-accent: #7890E7;
+  --color-accent-deep: #4362D0;
+  --color-badge-ink: rgba(255, 255, 255, 0.7);
+
+  /* Font families */
+  --font-sans: 'Pretendard Variable', Pretendard, 'Noto Sans KR', sans-serif;
+  --font-serif: 'Noto Serif KR', serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Text sizes */
+  --text-display: 24px;
+  --text-heading: 16px;
+  --text-body: 16px;
+  --text-list-item: 14px;
+  --text-caption: 12px;
+  --text-badge: 12px;
+  --text-mono-tab: 12px;
+
+  /* Letter spacing */
+  --tracking-ko: -0.01em;
+  --tracking-ko-display: -0.02em;
+  --tracking-latin: 0em;
+
+  /* Spacing — base 4px: p-1=4 p-2=8 p-3=12 p-4=16 p-6=24 p-8=32 p-10=40 p-12=48 p-16=64 */
+  --spacing: 4px;
+
+  /* Border radius */
+  --radius-pill: 14px;
+  --radius-badge: 10px;
+  --radius-sub: 2px;
+
+  /* Shadow (subscribe pill 전용) */
+  --shadow-pill: 0 1px 2px rgba(20, 33, 43, 0.04);
+
+  /* Animations */
+  --animate-crossfade-in: crossfade-in 0.55s cubic-bezier(.4,0,.2,1) both;
+}
+
+@keyframes crossfade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-page);
+    color: var(--color-ink);
+  }
+}
