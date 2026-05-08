@@ -5,8 +5,8 @@ const query = '(prefers-reduced-motion: reduce)'
 // window.matchMedia가 서버 사이드 렌더링 환경 등에서 존재하지 않을 경우를 대비
 const getInitialState = () => (typeof window === 'undefined' ? false : window.matchMedia(query).matches)
 
-export function usePrefersReducedMotion() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialState)
+export function usePrefersReducedMotion(): boolean {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState<boolean>(getInitialState)
 
   useEffect(() => {
     if (typeof window === 'undefined') {

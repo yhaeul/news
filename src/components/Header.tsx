@@ -10,7 +10,7 @@ function getDateString() {
 }
 
 export function Header() {
-  const [dateString, setDateString] = useState(getDateString)
+  const [dateString, setDateString] = useState<string>(getDateString)
 
   useEffect(() => {
     const now = new Date()

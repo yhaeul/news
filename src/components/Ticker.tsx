@@ -46,7 +46,7 @@ function TickerLane({
 }
 
 export function Ticker() {
-  const [isPaused, setIsPaused] = useState(false)
+  const [isPaused, setIsPaused] = useState<boolean>(false)
 
   return (
     <div

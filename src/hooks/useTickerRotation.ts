@@ -14,7 +14,7 @@ export function useTickerRotation({
   initialDelayMs = 0,
   isPaused = false,
 }: UseTickerRotationParams): number {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState<number>(0)
   const prefersReducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {

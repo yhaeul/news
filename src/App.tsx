@@ -8,10 +8,10 @@ import { presses } from './data/presses'
 const TOTAL_PAGES = 3
 
 function App() {
-  const [scale, setScale] = useState(1)
+  const [scale, setScale] = useState<number>(1)
   const [tab, setTab] = useState<Tab>('all')
   const [viewer, setViewer] = useState<Viewer>('grid')
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState<number>(0)
 
   useEffect(() => {
     const update = () =>

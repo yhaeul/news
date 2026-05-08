@@ -85,6 +85,40 @@ src/
 
 그 외 픽셀 정밀 수치는 Tailwind arbitrary value(`top-[58px]`, `h-[29px]`)를 사용한다.
 
+### TypeScript 컨벤션
+
+**`useState` 타입 명시** — 항상 타입 파라미터를 명시한다.
+
+```tsx
+const [count, setCount] = useState<number>(0)
+const [tab, setTab] = useState<Tab>('all')
+```
+
+**커스텀 훅 반환 타입 명시** — 훅 함수에는 반환 타입을 명시한다.
+
+```ts
+export function useTickerRotation(...): number { ... }
+export function usePrefersReducedMotion(): boolean { ... }
+```
+
+**`interface` vs `type` 구분**
+- 객체 형태(props, 데이터 구조)는 `interface`
+- 유니온·리터럴·별칭은 `type`
+
+```ts
+interface PressWordmarkConfig { name: string; color: string }  // 객체 → interface
+type Tab = 'all' | 'sub'                                       // 유니온 → type
+```
+
+**Props 인터페이스 네이밍** — `ComponentNameProps` 형식으로 명명한다.
+
+```ts
+interface TabBarProps { ... }
+interface GridCellProps { ... }
+```
+
+**`any` 금지** — 타입을 알 수 없을 때는 `unknown`을 사용하고 타입 가드로 좁힌다.
+
 ### 값 변수화 기준
 
 값을 CSS 변수(`@theme`)로 관리할지 하드코딩으로 둘지는 아래 기준으로 판단한다.
