@@ -131,7 +131,7 @@
 - [x] 우측 — 리스트 뷰 아이콘 24×24, 활성 시 `ink` / 비활성 시 `mute`
 - [x] 우측 — 그리드 뷰 아이콘 24×24, 활성 시 `ink` / 비활성 시 `mute`
 - [x] 우측 아이콘 클러스터 gap 8
-- [ ] 탭 전환 시 페이지 0 초기화, opened 상태 null 초기화
+- [x] 탭 전환 시 페이지 0 초기화, opened 상태 null 초기화
 
 ---
 
@@ -235,15 +235,15 @@
 
 ## 14. 전역 상태 관리
 
-- [ ] `tab: "all" | "sub"` — 현재 활성 탭 (전체/구독)
-- [ ] `page: number` — 현재 그리드 페이지 (0-based)
-- [ ] `viewer: "grid" | "list"` — 뷰어 모드 (탭바 우측 토글)
-- [ ] `opened: pressId | null` — 열린 언론사 ID (null이면 그리드 표시)
+- [x] `tab: "all" | "sub"` — 현재 활성 탭 (전체/구독)
+- [x] `page: number` — 현재 그리드 페이지 (0-based)
+- [x] `viewer: "grid" | "list"` — 뷰어 모드 (탭바 우측 토글)
+- [x] `opened: pressId | null` — 열린 언론사 ID (null이면 그리드 표시)
 - [ ] `tabKey: categoryKey` — PressOpen 내 활성 카테고리 탭 키
 - [ ] `progress: 0..1` — FieldTab 프로그레스 바 현재 값
 - [ ] `currentInTab: number` — 현재 탭 내 표시 중인 기사 번호 (1-based)
-- [ ] `subscribed: Set<pressId>` — 구독한 언론사 ID 집합
-- [ ] 모든 상태는 `<App>` 루트에서 관리, 하위 컴포넌트는 props로 수신
+- [x] `subscribed: Set<pressId>` — 구독한 언론사 ID 집합
+- [x] 모든 상태는 `<App>` 루트에서 관리, 하위 컴포넌트는 props로 수신
 
 ---
 

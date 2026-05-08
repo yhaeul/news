@@ -1,12 +1,13 @@
 import type { CSSProperties } from 'react'
 import type { PressWordmarkConfig } from '../types/press'
-import type { Tab } from './TabBar'
 import { PressWordmark } from './PressWordmark'
 
 interface GridCellProps {
   press: PressWordmarkConfig
-  tab: Tab
+  isSubscribed: boolean
   onOpen: () => void
+  onSubscribe: () => void
+  onUnsubscribe: () => void
 }
 
 function PlusIcon() {
@@ -43,9 +44,7 @@ const pillStyle: CSSProperties = {
   flexShrink: 0,
 }
 
-export function GridCell({ press, tab, onOpen }: GridCellProps) {
-  const isAll = tab === 'all'
-
+export function GridCell({ press, isSubscribed, onOpen, onSubscribe, onUnsubscribe }: GridCellProps) {
   return (
     <button
       onClick={onOpen}
@@ -59,9 +58,12 @@ export function GridCell({ press, tab, onOpen }: GridCellProps) {
 
       {/* hover/focus-within 상태: pill */}
       <div className="absolute inset-0 bg-soft invisible group-hover:visible group-focus-within:visible flex items-center justify-center">
-        <span style={pillStyle}>
-          {isAll ? <PlusIcon /> : <MinusIcon />}
-          {isAll ? '구독하기' : '해지하기'}
+        <span
+          style={pillStyle}
+          onClick={e => { e.stopPropagation(); if (isSubscribed) { onUnsubscribe() } else { onSubscribe() } }}
+        >
+          {isSubscribed ? <MinusIcon /> : <PlusIcon />}
+          {isSubscribed ? '해지하기' : '구독하기'}
         </span>
       </div>
     </button>

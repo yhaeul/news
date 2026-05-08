@@ -12,6 +12,8 @@ function App() {
   const [tab, setTab] = useState<Tab>('all')
   const [viewer, setViewer] = useState<Viewer>('grid')
   const [page, setPage] = useState<number>(0)
+  const [opened, setOpened] = useState<number | null>(null)
+  const [subscribed, setSubscribed] = useState<Set<number>>(new Set())
 
   useEffect(() => {
     const update = () =>
@@ -24,6 +26,23 @@ function App() {
   function handleTabChange(next: Tab) {
     setTab(next)
     setPage(0)
+    setOpened(null)
+  }
+
+  function handleOpen(index: number) {
+    setOpened(index)
+  }
+
+  function handleSubscribe(index: number) {
+    setSubscribed(prev => new Set(prev).add(index))
+  }
+
+  function handleUnsubscribe(index: number) {
+    setSubscribed(prev => {
+      const next = new Set(prev)
+      next.delete(index)
+      return next
+    })
   }
 
   const showLeft = page > 0
@@ -51,18 +70,23 @@ function App() {
         {/* TabBar — y:208, h:24 */}
         <TabBar
           activeTab={tab}
-          subCount={0}
+          subCount={subscribed.size}
           viewer={viewer}
           onTabChange={handleTabChange}
           onViewerChange={setViewer}
         />
-        {/* PressGrid — y:256, 930×388 */}
-        <PressGrid
-          presses={presses}
-          tab={tab}
-          page={page}
-          onOpen={() => {}}
-        />
+        {/* PressGrid — y:256, 930×388 / opened 시 PressOpen으로 대체 예정 */}
+        {opened === null && (
+          <PressGrid
+            presses={presses}
+            tab={tab}
+            page={page}
+            subscribed={subscribed}
+            onOpen={handleOpen}
+            onSubscribe={handleSubscribe}
+            onUnsubscribe={handleUnsubscribe}
+          />
+        )}
         {/* Chevron left — x:103, y:430, 24×40 */}
         <button
           aria-label="이전 페이지"
