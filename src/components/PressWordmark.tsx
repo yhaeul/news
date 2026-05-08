@@ -9,8 +9,8 @@ function FlagGlyph() {
       viewBox="0 0 8 10"
       style={{ display: 'inline', marginLeft: '2px', verticalAlign: 'middle' }}
     >
-      <line x1="1" y1="0" x2="1" y2="10" stroke="#E00000" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M1 1L8 3.5L1 6Z" fill="#E00000" />
+      <line x1="1" y1="0" x2="1" y2="10" stroke="var(--color-flag)" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M1 1L8 3.5L1 6Z" fill="var(--color-flag)" />
     </svg>
   )
 }
@@ -67,7 +67,7 @@ export function PressWordmark({
             charStyle.backgroundColor = accent
             charStyle.borderRadius = 'var(--radius-sub)'
             charStyle.padding = '1px 3px'
-            charStyle.color = '#fff'
+            charStyle.color = 'var(--color-card)'
           } else {
             charStyle.color = accent
           }

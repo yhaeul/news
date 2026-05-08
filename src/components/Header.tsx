@@ -30,7 +30,7 @@ export function Header() {
           height="24"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#14212B"
+          stroke="currentColor"
           strokeWidth="1.4"
           strokeLinecap="round"
           strokeLinejoin="round"

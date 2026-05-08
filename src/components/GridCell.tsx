@@ -30,7 +30,7 @@ const pillStyle: CSSProperties = {
   height: 28,
   padding: '0 12px',
   borderRadius: 'var(--radius-pill)',
-  backgroundColor: '#FFFFFF',
+  backgroundColor: 'var(--color-card)',
   border: '1px solid var(--color-line)',
   boxShadow: 'var(--shadow-pill)',
   display: 'inline-flex',

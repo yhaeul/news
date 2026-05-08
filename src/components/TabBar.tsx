@@ -78,7 +78,7 @@ export function TabBar({ activeTab, subCount, viewer, onTabChange, onViewerChang
           >
             <span
               className="text-[12px] font-medium leading-none"
-              style={{ color: 'rgba(255,255,255,0.7)' }}
+              style={{ color: 'var(--color-badge-ink)' }}
             >
               {subCount}
             </span>
