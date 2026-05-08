@@ -133,6 +133,17 @@ interface GridCellProps { ... }
 - SVG 드로잉 수치 (`width="24"`, `strokeWidth="1.5"`) — 아이콘 형태 정의
 - `src/data/` 내 언론사 브랜드 색상 — 언론사 고유 데이터이며 테마 전환 대상이 아님
 
+### 명명 규칙
+
+| 대상 | 규칙 | 예시 |
+|---|---|---|
+| 컴포넌트 파일·함수 | PascalCase | `TabBar.tsx`, `function GridCell()` |
+| 훅 파일·함수 | camelCase + `use` 접두사 | `useTickerRotation.ts` |
+| 데이터·타입 파일 | camelCase | `presses.ts`, `press.ts` |
+| 이벤트 핸들러 | camelCase + `handle` 접두사 | `handleTabChange` |
+| 전역 상수 | UPPER_SNAKE_CASE | `PAGE_SIZE`, `TOTAL_PAGES` |
+| 타입·인터페이스 | PascalCase | `Tab`, `PressWordmarkConfig` |
+
 ### 조건부 클래스
 
 `clsx` + `tailwind-merge`를 조합해 사용한다.
@@ -146,6 +157,41 @@ const cn = (...inputs) => twMerge(clsx(inputs));
 // 사용 예
 <button className={cn('text-body', isActive ? 'font-bold text-ink' : 'font-medium text-mute')} />
 ```
+
+---
+
+## ESLint
+
+`eslint.config.js`에 다음이 설정되어 있다.
+
+| 플러그인 | 주요 규칙 |
+|---|---|
+| `typescript-eslint` recommended | `no-explicit-any`, 미사용 변수·파라미터 금지 |
+| `eslint-plugin-react-hooks` recommended | `rules-of-hooks`, `exhaustive-deps` |
+| `eslint-plugin-react-refresh` | 컴포넌트 파일에서 컴포넌트만 export |
+| `eslint-config-prettier` | Prettier 충돌 규칙 비활성화 |
+
+`tsconfig.app.json`에 `strict: true`, `noUnusedLocals`, `noUnusedParameters`가 활성화되어 있다.
+코드 작성 전후로 `npm run lint`와 `tsc --noEmit`을 실행해 오류 없음을 확인한다.
+
+---
+
+
+## 성능 주의사항
+
+- **이벤트 리스너·타이머는 반드시 cleanup** — `useEffect` return에서 `removeEventListener` / `clearTimeout` / `clearInterval` 호출
+- **애니메이션은 CSS로** — JS로 값을 계산하는 대신 Tailwind 애니메이션 클래스(`animate-crossfade-in`) 사용
+- **state updater function 사용** — 이전 값 기반 업데이트는 `setPage(p => p - 1)` 형태로 작성
+
+---
+
+## PR 기준
+
+PR을 올리기 전에 아래를 모두 확인한다.
+
+- `npm run lint` 통과
+- `tsc --noEmit` 통과
+- `npm run dev`로 구현 기능 직접 확인
 
 ---
 
