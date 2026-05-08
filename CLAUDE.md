@@ -160,6 +160,19 @@ const cn = (...inputs) => twMerge(clsx(inputs));
 
 ---
 
+## 개발 프로세스
+
+각 섹션 구현을 시작하기 전에 아래 순서를 반드시 따른다.
+
+1. **디자인 시안 확인** — `docs/design/*.jpg` 이미지에서 해당 섹션의 시각적 결과 확인
+2. **스펙 확인** — `docs/newsstand-design_system.md`에서 수치·색상·동작 스펙 확인
+3. **체크리스트 확인** — `docs/checklist.md`에서 해당 섹션 항목 전체 파악
+4. **상태 흐름 설계** — 이 섹션이 읽는 상태와 바꾸는 상태, props 인터페이스 먼저 정의
+5. **구현**
+6. **검증** — `npm run lint` + `tsc --noEmit` 통과 확인 후 체크리스트 체크
+
+---
+
 ## ESLint
 
 `eslint.config.js`에 다음이 설정되어 있다.
