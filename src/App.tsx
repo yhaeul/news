@@ -3,6 +3,7 @@ import { Header } from './components/Header'
 import { Ticker } from './components/Ticker'
 import { TabBar, type Tab, type Viewer } from './components/TabBar'
 import { PressGrid } from './components/PressGrid'
+import { Chevron } from './components/Chevron'
 import { presses } from './data/presses'
 
 const TOTAL_PAGES = 3
@@ -87,22 +88,14 @@ function App() {
             onUnsubscribe={handleUnsubscribe}
           />
         )}
-        {/* Chevron left — x:103, y:430, 24×40 */}
-        <button
-          aria-label="이전 페이지"
-          disabled={!showLeft}
-          onClick={() => setPage(p => p - 1)}
-          className="absolute top-[430px] left-[103px] w-[24px] h-[40px] bg-line"
-          style={{ opacity: showLeft ? 1 : 0 }}
-        />
+        {/* Chevron left — x:103, y:430 */}
+        <div className="absolute top-[430px] left-[103px]">
+          <Chevron direction="left" visible={showLeft} onClick={() => setPage(p => p - 1)} />
+        </div>
         {/* Chevron right — x:1153, y:430 */}
-        <button
-          aria-label="다음 페이지"
-          disabled={!showRight}
-          onClick={() => setPage(p => p + 1)}
-          className="absolute top-[430px] left-[1153px] w-[24px] h-[40px] bg-line"
-          style={{ opacity: showRight ? 1 : 0 }}
-        />
+        <div className="absolute top-[430px] left-[1153px]">
+          <Chevron direction="right" visible={showRight} onClick={() => setPage(p => p + 1)} />
+        </div>
       </div>
     </div>
   )
