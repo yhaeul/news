@@ -1,13 +1,15 @@
-export type CategoryKey = '종합/경제' | '방송/통신' | 'IT' | '스포츠/연예' | '매거진/전문지' | '지역'
+export const CATEGORY_KEY = {
+  GENERAL:   '종합/경제',
+  BROADCAST: '방송/통신',
+  IT:        'IT',
+  SPORTS:    '스포츠/연예',
+  MAGAZINE:  '매거진/전문지',
+  REGIONAL:  '지역',
+} as const
 
-export const ALL_CATEGORIES: readonly CategoryKey[] = [
-  '종합/경제',
-  '방송/통신',
-  'IT',
-  '스포츠/연예',
-  '매거진/전문지',
-  '지역',
-]
+export type CategoryKey = typeof CATEGORY_KEY[keyof typeof CATEGORY_KEY]
+
+export const ALL_CATEGORIES = Object.values(CATEGORY_KEY) as CategoryKey[]
 
 export interface ArticleSet {
   headline: string

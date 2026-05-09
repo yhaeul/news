@@ -1,9 +1,10 @@
+import { CATEGORY_KEY } from '../types/category'
 import type { ArticleSet, CategoryKey } from '../types/category'
 
 // 카테고리당 3세트. currentInTab은 1부터 sets.length까지 증가하며 세트를 교체한다.
 // 인덱스: (currentInTab - 1) % sets.length
 export const articles: Record<CategoryKey, ArticleSet[]> = {
-  '종합/경제': [
+  [CATEGORY_KEY.GENERAL]: [
     {
       headline: "기업, '워라밸 교육 프로그램' 자율 도입 확대",
       editTime: '2026.01.14. 19:38 편집',
@@ -42,7 +43,7 @@ export const articles: Record<CategoryKey, ArticleSet[]> = {
     },
   ],
 
-  '방송/통신': [
+  [CATEGORY_KEY.BROADCAST]: [
     {
       headline: "전기요금도 이제 '알림으로 다독다독'… 생활관리 습관 확산",
       editTime: '2026.01.14. 18:53 편집',
@@ -81,7 +82,7 @@ export const articles: Record<CategoryKey, ArticleSet[]> = {
     },
   ],
 
-  IT: [
+  [CATEGORY_KEY.IT]: [
     {
       headline: '국내 AI 반도체 생태계 구축 속도… 글로벌 경쟁력 향상 기대',
       editTime: '2026.01.14. 08:30 편집',
@@ -120,7 +121,7 @@ export const articles: Record<CategoryKey, ArticleSet[]> = {
     },
   ],
 
-  '스포츠/연예': [
+  [CATEGORY_KEY.SPORTS]: [
     {
       headline: "프로야구 신인 드래프트 역대 최다 지원… '야구 열기' 실감",
       editTime: '2026.01.14. 11:00 편집',
@@ -159,7 +160,7 @@ export const articles: Record<CategoryKey, ArticleSet[]> = {
     },
   ],
 
-  '매거진/전문지': [
+  [CATEGORY_KEY.MAGAZINE]: [
     {
       headline: "2026 소비 트렌드 분석: MZ세대 '가치 소비' 확산",
       editTime: '2026.01.14. 07:00 편집',
@@ -198,7 +199,7 @@ export const articles: Record<CategoryKey, ArticleSet[]> = {
     },
   ],
 
-  지역: [
+  [CATEGORY_KEY.REGIONAL]: [
     {
       headline: '지역균형발전 5개년 계획 발표… 비수도권 인프라 집중 투자',
       editTime: '2026.01.14. 09:30 편집',
