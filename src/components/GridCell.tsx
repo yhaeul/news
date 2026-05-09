@@ -1,9 +1,9 @@
-import type { PressWordmarkConfig } from '../types/press'
+import type { PressConfig } from '../types/press'
 import { PressWordmark } from './PressWordmark'
 import { SubscribePill } from './SubscribePill'
 
 interface GridCellProps {
-  press: PressWordmarkConfig
+  press: PressConfig
   isSubscribed: boolean
   onOpen: () => void
   onSubscribe: () => void

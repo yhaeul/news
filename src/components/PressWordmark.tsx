@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import type { PressWordmarkConfig } from '../types/press'
+import type { PressConfig } from '../types/press'
 
 function FlagGlyph() {
   return (
@@ -31,7 +31,7 @@ export function PressWordmark({
   flag = false, // 아시아경제 전용
   latin = false,
   small = false,
-}: PressWordmarkConfig) {
+}: PressConfig) {
   const fontFamily = family === 'serif' ? 'var(--font-serif)' : 'var(--font-sans)'
   const letterSpacing = tracking ?? (latin ? '0em' : '-0.01em')
   const fontSize = small ? '14px' : '16px'

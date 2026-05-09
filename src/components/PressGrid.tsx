@@ -1,4 +1,4 @@
-import type { PressWordmarkConfig } from '../types/press'
+import type { PressConfig } from '../types/press'
 import type { Tab } from './TabBar'
 import { GridCell } from './GridCell'
 
@@ -6,11 +6,11 @@ export const PAGE_SIZE = 24
 
 interface Slot {
   globalIndex: number
-  press: PressWordmarkConfig
+  press: PressConfig
 }
 
 interface PressGridProps {
-  presses: PressWordmarkConfig[]
+  presses: PressConfig[]
   tab: Tab
   page: number
   subscribed: Set<number>
@@ -19,7 +19,7 @@ interface PressGridProps {
   onUnsubscribe: (index: number) => void
 }
 
-function buildSlots(presses: PressWordmarkConfig[], tab: Tab, page: number, subscribed: Set<number>): (Slot | null)[] {
+function buildSlots(presses: PressConfig[], tab: Tab, page: number, subscribed: Set<number>): (Slot | null)[] {
   if (tab === 'sub') {
     const subscribedIndices = Array.from(subscribed)
     const pageIndices = subscribedIndices.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE)

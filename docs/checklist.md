@@ -262,7 +262,7 @@
 ## 16. 언론사 데이터
 
 - [x] 전체 언론사 72개 목록 정의 — 각 언론사별 워드마크 속성 포함 (name, color, weight, family, italic, underline, tracking, accent, accentChar, accentUnder, accentBg, bg, flag, latin, small)
-- [ ] 언론사별 primary 카테고리 탭 정의 (첫 진입 시 기본 탭)
-- [ ] 티커 데이터 정의 — 2개 레인 별도, 각 레인별 언론사명 + 기사 제목 목록
-- [ ] 각 언론사별 보유 카테고리 탭 목록 정의
-- [ ] 각 카테고리별 기사 데이터 정의 — 헤드라인 이미지, 헤드라인 제목, 기사 6개 목록, 편집시간
+- [x] 언론사별 primary 카테고리 탭 정의 (첫 진입 시 기본 탭) — `presses[i].primaryCategory`
+- [x] 티커 데이터 정의 — 2개 레인 별도, 각 레인별 언론사명 + 기사 제목 목록
+- [x] 각 언론사별 보유 카테고리 탭 목록 정의 — 전체 6개 탭 공통 (`ALL_CATEGORIES`)
+- [x] 각 카테고리별 기사 데이터 정의 — 헤드라인 이미지, 헤드라인 제목, 기사 6개 목록, 편집시간
