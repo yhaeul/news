@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import { Header } from './components/Header'
 import { Ticker } from './components/Ticker'
 import { TabBar, type Tab, type Viewer } from './components/TabBar'
-import { PressGrid } from './components/PressGrid'
+import { PressGrid, PAGE_SIZE } from './components/PressGrid'
 import { Chevron } from './components/Chevron'
 import { presses } from './data/presses'
 
-const TOTAL_PAGES = 3
+const ALL_PRESS_PAGES = 3
 
 function App() {
   const [scale, setScale] = useState<number>(1)
@@ -46,8 +46,12 @@ function App() {
     })
   }
 
+  const totalPages = tab === 'all'
+    ? ALL_PRESS_PAGES
+    : Math.max(1, Math.ceil(subscribed.size / PAGE_SIZE))
+
   const showLeft = page > 0
-  const showRight = page < TOTAL_PAGES - 1
+  const showRight = page < totalPages - 1
 
   return (
     <div
