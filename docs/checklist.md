@@ -193,12 +193,12 @@
 
 ## 11. 구독/해지 Pill (SubscribePill)
 
-- [ ] height 28, padding 0 12, `r-pill(14px)`, bg `#FFFFFF`, border 1px `#D2DAE0`
-- [ ] 텍스트 12/500 `sub`
-- [ ] 앞 아이콘 — 10×10 + (구독) 또는 − (해지), stroke `sub` 1.3
-- [ ] 그림자 — `0 1px 2px rgba(20,33,43,0.04)`
-- [ ] 구독하기 클릭 → `subscribed` Set에 추가, 탭바 뱃지 카운트 +1
-- [ ] 해지하기 클릭 → `subscribed` Set에서 제거, 탭바 뱃지 카운트 -1
+- [x] height 28, padding 0 12, `r-pill(14px)`, bg `#FFFFFF`, border 1px `#D2DAE0`
+- [x] 텍스트 12/500 `sub`
+- [x] 앞 아이콘 — 10×10 + (구독) 또는 − (해지), stroke `sub` 1.3
+- [x] 그림자 — `0 1px 2px rgba(20,33,43,0.04)`
+- [x] 구독하기 클릭 → `subscribed` Set에 추가, 탭바 뱃지 카운트 +1
+- [x] 해지하기 클릭 → `subscribed` Set에서 제거, 탭바 뱃지 카운트 -1
 
 ---
 
