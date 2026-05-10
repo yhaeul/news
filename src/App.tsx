@@ -14,9 +14,10 @@ const ALL_PRESS_PAGES = 3
 function App() {
   const [scale, setScale] = useState<number>(1)
   const [tab, setTab] = useState<Tab>('all')
-  const [viewer, setViewer] = useState<Viewer>('grid')
   const [page, setPage] = useState<number>(0)
   const [opened, setOpened] = useState<number | null>(null)
+  const [lastOpened, setLastOpened] = useState<number | null>(null)
+  const viewer: Viewer = opened !== null ? 'list' : 'grid'
   const [subscribed, setSubscribed] = useState<Set<number>>(new Set())
 
   const openedPressKey = opened !== null ? presses[opened].primaryCategory : CATEGORY_KEY.GENERAL
@@ -40,8 +41,17 @@ function App() {
     setOpened(null)
   }
 
+  function handleViewerChange(next: Viewer) {
+    if (next === 'grid') {
+      setOpened(null)
+    } else {
+      setOpened(lastOpened ?? 0)
+    }
+  }
+
   function handleOpen(index: number) {
     setOpened(index)
+    setLastOpened(index)
   }
 
   function handleSubscribe(index: number) {
@@ -109,7 +119,7 @@ function App() {
           subCount={subscribed.size}
           viewer={viewer}
           onTabChange={handleTabChange}
-          onViewerChange={setViewer}
+          onViewerChange={handleViewerChange}
         />
         {/* y:256, 930×388 — opened 시 PressOpen, 아니면 PressGrid */}
         {opened !== null ? (
