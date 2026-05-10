@@ -3,8 +3,11 @@ import { Header } from './components/Header'
 import { Ticker } from './components/Ticker'
 import { TabBar, type Tab, type Viewer } from './components/TabBar'
 import { PressGrid, PAGE_SIZE } from './components/PressGrid'
+import { PressOpen } from './components/PressOpen'
 import { Chevron } from './components/Chevron'
 import { presses } from './data/presses'
+import { useFieldTabProgress } from './hooks/useFieldTabProgress'
+import { CATEGORY_KEY } from './types/category'
 
 const ALL_PRESS_PAGES = 3
 
@@ -15,6 +18,12 @@ function App() {
   const [page, setPage] = useState<number>(0)
   const [opened, setOpened] = useState<number | null>(null)
   const [subscribed, setSubscribed] = useState<Set<number>>(new Set())
+
+  const openedPressKey = opened !== null ? presses[opened].primaryCategory : CATEGORY_KEY.GENERAL
+  const { tabKey, progress, currentInTab, handleTabChange: handleFieldTabChange } = useFieldTabProgress({
+    initialTabKey: openedPressKey,
+    enabled: opened !== null,
+  })
 
   useEffect(() => {
     const update = () =>
@@ -80,8 +89,19 @@ function App() {
           onTabChange={handleTabChange}
           onViewerChange={setViewer}
         />
-        {/* PressGrid — y:256, 930×388 / opened 시 PressOpen으로 대체 예정 */}
-        {opened === null && (
+        {/* y:256, 930×388 — opened 시 PressOpen, 아니면 PressGrid */}
+        {opened !== null ? (
+          <PressOpen
+            press={presses[opened]}
+            isSubscribed={subscribed.has(opened)}
+            tabKey={tabKey}
+            progress={progress}
+            currentInTab={currentInTab}
+            onSubscribe={() => handleSubscribe(opened)}
+            onUnsubscribe={() => handleUnsubscribe(opened)}
+            onTabChange={handleFieldTabChange}
+          />
+        ) : (
           <PressGrid
             presses={presses}
             tab={tab}

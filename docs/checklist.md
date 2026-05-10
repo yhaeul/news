@@ -204,15 +204,15 @@
 
 ## 12. 언론사 상세 뷰 (PressOpen)
 
-- [ ] 그리드와 동일한 930×388 영역을 대체 (그리드 뷰와 상호 배타적)
-- [ ] bg `#FFFFFF`, 좌·하·우 border 1px `#D2DAE0` (상단 없음 — FieldTab 하단선이 경계)
-- [ ] 내부 padding 상하 24 / 좌우 32
-- [ ] 헤드 행 — flex gap 16 align center: 워드마크(scale 1.05) + 편집시간(12/500 `sub` tabular-nums, "YYYY.MM.DD. HH:MM 편집") + 구독 pill
-- [ ] 좌측 컬럼 340px 고정 — 헤드라인 이미지 박스 (~340×188, bg `linear-gradient(135deg, #EFF1F6, #DDE3EC)`, border 1px `#D2DAE0`, "headline image" 플레이스홀더 중앙) + 헤드라인 텍스트 16/700 `ink` line-height 1.45
-- [ ] 우측 컬럼 flex 1 — 기사 목록 6개 (14/500 `ink`, line-height 1.5), 각 항목 앞 3×3 불릿 사각형 (`#14212B`, translateY -4)
-- [ ] 각주 — `margin-top: auto`로 하단 고정, "{언론사명} 언론사에서 직접 편집한 뉴스입니다." (12/500 `mute`)
-- [ ] 언론사 클릭 진입 시 해당 언론사의 primary 카테고리 탭으로 기본 진입, progress 0 시작
-- [ ] PressOpen 내 구독 pill 클릭 시 구독/해지 동작 정상 수행
+- [x] 그리드와 동일한 930×388 영역을 대체 (그리드 뷰와 상호 배타적)
+- [x] bg `#FFFFFF`, 좌·하·우 border 1px `#D2DAE0` (상단 없음 — FieldTab 하단선이 경계)
+- [x] 내부 padding 상하 24 / 좌우 32
+- [x] 헤드 행 — flex gap 16 align center: 워드마크(scale 1.05) + 편집시간(12/500 `sub` tabular-nums, "YYYY.MM.DD. HH:MM 편집") + 구독 pill
+- [x] 좌측 컬럼 340px 고정 — 헤드라인 이미지 박스 (~340×188, bg `linear-gradient(135deg, #EFF1F6, #DDE3EC)`, border 1px `#D2DAE0`, "headline image" 플레이스홀더 중앙) + 헤드라인 텍스트 16/700 `ink` line-height 1.45
+- [x] 우측 컬럼 flex 1 — 기사 목록 6개 (14/500 `ink`, line-height 1.5), 각 항목 앞 3×3 불릿 사각형 (`#14212B`, translateY -4)
+- [x] 각주 — `margin-top: auto`로 하단 고정, "{언론사명} 언론사에서 직접 편집한 뉴스입니다." (12/500 `mute`)
+- [x] 언론사 클릭 진입 시 해당 언론사의 primary 카테고리 탭으로 기본 진입, progress 0 시작
+- [x] PressOpen 내 구독 pill 클릭 시 구독/해지 동작 정상 수행
 
 ---
 
@@ -239,9 +239,9 @@
 - [x] `page: number` — 현재 그리드 페이지 (0-based)
 - [x] `viewer: "grid" | "list"` — 뷰어 모드 (탭바 우측 토글)
 - [x] `opened: pressId | null` — 열린 언론사 ID (null이면 그리드 표시)
-- [ ] `tabKey: categoryKey` — PressOpen 내 활성 카테고리 탭 키
-- [ ] `progress: 0..1` — FieldTab 프로그레스 바 현재 값
-- [ ] `currentInTab: number` — 현재 탭 내 표시 중인 기사 번호 (1-based)
+- [x] `tabKey: categoryKey` — PressOpen 내 활성 카테고리 탭 키
+- [x] `progress: 0..1` — FieldTab 프로그레스 바 현재 값
+- [x] `currentInTab: number` — 현재 탭 내 표시 중인 기사 번호 (1-based)
 - [x] `subscribed: Set<pressId>` — 구독한 언론사 ID 집합
 - [x] 모든 상태는 `<App>` 루트에서 관리, 하위 컴포넌트는 props로 수신
 

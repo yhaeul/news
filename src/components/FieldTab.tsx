@@ -25,7 +25,7 @@ export function FieldTab({ tabKey, progress, currentInTab, onTabChange }: FieldT
             key={cat}
             onClick={() => onTabChange(cat)}
             className={cn(
-              'relative flex-1 flex items-center px-4 overflow-hidden focus:outline-none',
+              'relative flex-1 flex items-center px-3 overflow-hidden focus:outline-none',
               !isLast && 'border-r border-line',
               isActive && 'bg-accent',
             )}
@@ -38,14 +38,14 @@ export function FieldTab({ tabKey, progress, currentInTab, onTabChange }: FieldT
             )}
             <span
               className={cn(
-                'relative z-10 text-list-item',
+                'relative z-10 text-list-item whitespace-nowrap shrink-0',
                 isActive ? 'font-bold text-white' : 'font-medium text-sub',
               )}
             >
               {cat}
             </span>
             {isActive && (
-              <span className="relative z-10 ml-auto font-mono font-medium text-mono-tab tabular-nums">
+              <span className="relative z-10 ml-auto pl-2 shrink-0 font-mono font-medium text-mono-tab tabular-nums">
                 <span className="text-white">{currentInTab}</span>
                 <span className="text-white/70"> / {TOTAL_ARTICLES}</span>
               </span>
