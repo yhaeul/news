@@ -23,10 +23,16 @@ function TickerLane({
   items,
   initialDelayMs,
   isPaused,
+  onFocus,
+  onBlur,
+  ariaLabel,
 }: {
   items: TickerItem[]
   initialDelayMs: number
   isPaused: boolean
+  onFocus: () => void
+  onBlur: () => void
+  ariaLabel: string
 }) {
   const currentIndex = useTickerRotation({
     totalItems: items.length,
@@ -39,8 +45,16 @@ function TickerLane({
   const animationClass = !prefersReducedMotion && 'animate-crossfade-in'
 
   return (
-    <div key={currentIndex} className={cn('flex-1', animationClass)}>
-      <TickerItemView item={currentItem} />
+    <div
+      tabIndex={0}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      aria-label={ariaLabel}
+      className="flex-1 flex items-center overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
+    >
+      <div key={currentIndex} className={cn('flex-1', animationClass)}>
+        <TickerItemView item={currentItem} />
+      </div>
     </div>
   )
 }
@@ -50,16 +64,26 @@ export function Ticker() {
 
   return (
     <div
-      className="absolute top-[127px] left-[175px] w-[930px] h-[49px] bg-soft flex items-center gap-2 px-4 overflow-hidden outline-none"
+      className="absolute top-[127px] left-[175px] w-[930px] h-[49px] bg-soft flex items-center gap-2 px-4 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
-      tabIndex={0}
-      aria-label="실시간 뉴스 티커"
     >
-      <TickerLane items={tickerData.leftLane} initialDelayMs={0} isPaused={isPaused} />
-      <TickerLane items={tickerData.rightLane} initialDelayMs={1600} isPaused={isPaused} />
+      <TickerLane
+        items={tickerData.leftLane}
+        initialDelayMs={0}
+        isPaused={isPaused}
+        onFocus={() => setIsPaused(true)}
+        onBlur={() => setIsPaused(false)}
+        ariaLabel="좌측 실시간 뉴스"
+      />
+      <TickerLane
+        items={tickerData.rightLane}
+        initialDelayMs={1600}
+        isPaused={isPaused}
+        onFocus={() => setIsPaused(true)}
+        onBlur={() => setIsPaused(false)}
+        ariaLabel="우측 실시간 뉴스"
+      />
     </div>
   )
 }

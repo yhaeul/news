@@ -30,7 +30,7 @@ export function Chevron({ direction, visible, onClick }: ChevronProps) {
       disabled={!visible}
       onClick={onClick}
       className={cn(
-        'w-[24px] h-[40px] border border-line flex items-center justify-center text-mute focus:outline-none',
+        'w-[24px] h-[40px] border border-line flex items-center justify-center text-mute focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1',
         visible ? 'opacity-100' : 'opacity-0'
       )}
     >

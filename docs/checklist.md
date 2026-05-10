@@ -249,13 +249,13 @@
 
 ## 15. 접근성 (Accessibility)
 
-- [ ] 탭바 `role="tablist"`, 각 탭 `role="tab"`, 활성 탭 `aria-selected="true"`
-- [ ] 체브론 `<button>` + `aria-label="이전 페이지"` / `"다음 페이지"`, 비활성 시 `disabled`
-- [ ] 구독 수 뱃지 `aria-label="구독 중인 언론사 N곳"` (N 동적 반영)
-- [ ] 셀 키보드 `:focus-within` 시 hover pill과 동일하게 표시
-- [ ] 티커 hover / focus 시 회전 일시정지
-- [ ] `prefers-reduced-motion` — 티커 전환 비활성화, FieldTab 프로그레스 즉시 완료 처리
-- [ ] 모든 텍스트 WCAG AA 색상 대비 충족 (`mute #879298`은 14px+ 에서 통과)
+- [x] 탭바 `role="tablist"`, 각 탭 `role="tab"`, 활성 탭 `aria-selected="true"`
+- [x] 체브론 `<button>` + `aria-label="이전 페이지"` / `"다음 페이지"`, 비활성 시 `disabled`
+- [x] 구독 수 뱃지 `aria-label="구독 중인 언론사 N곳"` (N 동적 반영)
+- [x] 셀 키보드 `:focus-within` 시 hover pill과 동일하게 표시
+- [x] 티커 hover / focus 시 회전 일시정지
+- [x] `prefers-reduced-motion` — 티커 전환 비활성화, FieldTab 프로그레스 즉시 완료 처리
+- [x] 모든 텍스트 WCAG AA 색상 대비 충족 (`mute #879298`은 14px+ 에서 통과)
 
 ---
 

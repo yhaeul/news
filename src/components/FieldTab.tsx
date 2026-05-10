@@ -16,18 +16,20 @@ interface FieldTabProps {
 
 export function FieldTab({ tabKey, progress, currentInTab, onTabChange }: FieldTabProps) {
   return (
-    <div className="w-full h-[40px] bg-soft border border-line flex">
+    <div role="tablist" className="w-full h-[40px] bg-soft border border-line flex">
       {ALL_CATEGORIES.map((cat, i) => {
         const isActive = cat === tabKey
         const isLast = i === ALL_CATEGORIES.length - 1
         return (
           <button
             key={cat}
+            role="tab"
+            aria-selected={isActive}
             onClick={() => onTabChange(cat)}
             className={cn(
-              'relative flex-1 flex items-center px-3 overflow-hidden focus:outline-none',
+              'relative flex-1 flex items-center px-3 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-inset',
               !isLast && 'border-r border-line',
-              isActive && 'bg-accent',
+              isActive ? 'bg-accent focus-visible:ring-white' : 'focus-visible:ring-accent',
             )}
           >
             {isActive && (

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { ALL_CATEGORIES } from '../types/category'
 import type { CategoryKey } from '../types/category'
+import { usePrefersReducedMotion } from './usePrefersReducedMotion'
 
 const TOTAL_ARTICLES = 81
 const TICK_MS = 100
@@ -25,6 +26,13 @@ export function useFieldTabProgress({
   const [tabKey, setTabKey] = useState<CategoryKey>(initialTabKey)
   const [progress, setProgress] = useState<number>(0)
   const [currentInTab, setCurrentInTab] = useState<number>(1)
+
+  const prefersReducedMotion = usePrefersReducedMotion()
+  const prefersReducedMotionRef = useRef<boolean>(prefersReducedMotion)
+
+  useEffect(() => {
+    prefersReducedMotionRef.current = prefersReducedMotion
+  }, [prefersReducedMotion])
 
   const tabKeyRef = useRef<CategoryKey>(initialTabKey)
   const currentInTabRef = useRef<number>(1)
@@ -52,7 +60,7 @@ export function useFieldTabProgress({
       tick++
       if (tick >= TICKS_PER_CYCLE) {
         tick = 0
-        setProgress(1)
+        setProgress(0)
         const next = currentInTabRef.current + 1
         if (next > TOTAL_ARTICLES) {
           const idx = ALL_CATEGORIES.indexOf(tabKeyRef.current)
@@ -65,7 +73,7 @@ export function useFieldTabProgress({
           currentInTabRef.current = next
           setCurrentInTab(next)
         }
-      } else {
+      } else if (!prefersReducedMotionRef.current) {
         setProgress(tick / TICKS_PER_CYCLE)
       }
     }, TICK_MS)

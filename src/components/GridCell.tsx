@@ -1,4 +1,5 @@
 import type { PressConfig } from '../types/press'
+import type { KeyboardEvent } from 'react'
 import { PressWordmark } from './PressWordmark'
 import { SubscribePill } from './SubscribePill'
 
@@ -11,24 +12,34 @@ interface GridCellProps {
 }
 
 export function GridCell({ press, isSubscribed, onOpen, onSubscribe, onUnsubscribe }: GridCellProps) {
+  function handleKeyDown(e: KeyboardEvent) {
+    if (e.target !== e.currentTarget) return
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      onOpen()
+    }
+  }
+
   return (
-    <button
+    <div
+      tabIndex={0}
       onClick={onOpen}
-      className="group relative w-full h-full bg-card flex items-center justify-center focus:outline-none cursor-pointer"
+      onKeyDown={handleKeyDown}
+      className="group relative w-full h-full bg-card flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset cursor-pointer"
     >
       {/* 기본 상태: 워드마크 */}
-      <div className="group-hover:invisible group-focus-visible:invisible">
+      <div className="group-hover:invisible group-focus-within:invisible">
         <PressWordmark {...press} />
       </div>
 
-      {/* hover/focus-visible 상태: pill */}
-      <div className="absolute inset-0 bg-soft invisible group-hover:visible group-focus-visible:visible flex items-center justify-center">
+      {/* hover/focus 상태: pill */}
+      <div className="absolute inset-0 bg-soft invisible group-hover:visible group-focus-within:visible flex items-center justify-center">
         <SubscribePill
           isSubscribed={isSubscribed}
           onSubscribe={onSubscribe}
           onUnsubscribe={onUnsubscribe}
         />
       </div>
-    </button>
+    </div>
   )
 }
