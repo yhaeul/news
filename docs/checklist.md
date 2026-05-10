@@ -218,18 +218,18 @@
 
 ## 13. 카테고리 필드탭 (FieldTab)
 
-- [ ] PressOpen 상단에 위치, height 40, bg `#F5F7F9`, border 1px `#D2DAE0`
-- [ ] 6개 탭 — 종합/경제, 방송/통신, IT, 스포츠/연예, 매거진/전문지, 지역
-- [ ] 각 탭 `flex: 1`, 탭 사이 우측 border 1px `#D2DAE0`, padding 0 16
-- [ ] 비활성 탭 — 14/500 `sub`
-- [ ] 활성 탭 — bg `#7890E7` (전체 탭 채움), 라벨 14/700 `#FFFFFF`
-- [ ] 활성 탭 프로그레스 바 — 좌측에서 우측으로 6초 linear fill, 색상 `#4362D0` (accent-deep), 탭 위에 오버레이 — width는 `style={{ width: `${progress * 100}%` }}` 인라인 스타일 사용 (Tailwind 클래스 불가)
-- [ ] 활성 탭 우측 카운터 — "N / 81" (N: 현재 기사 번호 14/500 `#FFFFFF`, "/ 81": 동일 opacity 0.7, IBM Plex Mono tabular-nums)
-- [ ] `setInterval(tick, 100)`으로 6000ms에 걸쳐 progress 0→1 증가
-- [ ] progress 1.0 도달 시 → `currentInTab + 1`
-- [ ] `currentInTab`이 탭 기사 수(81) 초과 시 → 다음 탭으로 이동, `currentInTab = 1` 리셋
-- [ ] 마지막 탭(지역) 완료 시 → 첫 번째 탭(종합/경제)으로 순환
-- [ ] 탭 수동 클릭 시 → 해당 탭으로 이동, progress 0 리셋, `currentInTab = 1` 리셋
+- [x] PressOpen 상단에 위치, height 40, bg `#F5F7F9`, border 1px `#D2DAE0`
+- [x] 6개 탭 — 종합/경제, 방송/통신, IT, 스포츠/연예, 매거진/전문지, 지역
+- [x] 각 탭 `flex: 1`, 탭 사이 우측 border 1px `#D2DAE0`, padding 0 16
+- [x] 비활성 탭 — 14/500 `sub`
+- [x] 활성 탭 — bg `#7890E7` (전체 탭 채움), 라벨 14/700 `#FFFFFF`
+- [x] 활성 탭 프로그레스 바 — 좌측에서 우측으로 6초 linear fill, 색상 `#4362D0` (accent-deep), 탭 위에 오버레이 — width는 `style={{ width: `${progress * 100}%` }}` 인라인 스타일 사용 (Tailwind 클래스 불가)
+- [x] 활성 탭 우측 카운터 — "N / 81" (N: 현재 기사 번호 14/500 `#FFFFFF`, "/ 81": 동일 opacity 0.7, IBM Plex Mono tabular-nums)
+- [x] `setInterval(tick, 100)`으로 6000ms에 걸쳐 progress 0→1 증가
+- [x] progress 1.0 도달 시 → `currentInTab + 1`
+- [x] `currentInTab`이 탭 기사 수(81) 초과 시 → 다음 탭으로 이동, `currentInTab = 1` 리셋
+- [x] 마지막 탭(지역) 완료 시 → 첫 번째 탭(종합/경제)으로 순환
+- [x] 탭 수동 클릭 시 → 해당 탭으로 이동, progress 0 리셋, `currentInTab = 1` 리셋
 
 ---
 
