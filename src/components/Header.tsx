@@ -40,28 +40,13 @@ export function Header() {
         </svg>
 
         {/* "뉴스스탠드" text — display 24/700 ink */}
-        <span
-          className="text-ink"
-          style={{
-            fontSize: 'var(--text-display)',
-            fontWeight: 700,
-            lineHeight: 1,
-            letterSpacing: 'var(--tracking-ko-display)',
-          }}
-        >
+        <span className="text-display font-bold leading-none tracking-ko-display text-ink">
           뉴스스탠드
         </span>
       </div>
 
       {/* Right: Today's date — body 16/500 sub */}
-      <span
-        className="text-sub"
-        style={{
-          fontSize: 'var(--text-body)',
-          fontWeight: 500,
-          letterSpacing: 'var(--tracking-ko)',
-        }}
-      >
+      <span className="text-body font-medium tracking-ko text-sub">
         {dateString}
       </span>
     </div>

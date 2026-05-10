@@ -76,10 +76,7 @@ export function TabBar({ activeTab, subCount, viewer, onTabChange, onViewerChang
             aria-label={`구독 중인 언론사 ${subCount}곳`}
             className="w-5 h-5 rounded-badge bg-accent flex items-center justify-center"
           >
-            <span
-              className="text-[12px] font-medium leading-none"
-              style={{ color: 'var(--color-badge-ink)' }}
-            >
+            <span className="text-[12px] font-medium leading-none text-badge-ink">
               {subCount}
             </span>
           </div>

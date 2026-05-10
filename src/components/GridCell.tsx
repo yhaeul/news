@@ -14,8 +14,7 @@ export function GridCell({ press, isSubscribed, onOpen, onSubscribe, onUnsubscri
   return (
     <button
       onClick={onOpen}
-      className="group relative w-full h-full bg-card flex items-center justify-center focus:outline-none"
-      style={{ cursor: 'pointer' }}
+      className="group relative w-full h-full bg-card flex items-center justify-center focus:outline-none cursor-pointer"
     >
       {/* 기본 상태: 워드마크 */}
       <div className="group-hover:invisible group-focus-visible:invisible">

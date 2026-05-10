@@ -78,12 +78,30 @@ src/
 
 ### 인라인 스타일 사용 규칙
 
-아래 두 경우는 Tailwind 클래스로 처리 불가하므로 인라인 스타일을 사용한다.
+`style` prop과 `CSSProperties` 상수 객체는 **원칙적으로 금지**한다. 아래 두 경우만 허용한다.
 
-1. **PressWordmark 동적 속성** — `color`, `letterSpacing`, `bg` 등은 런타임 데이터에서 오기 때문에 `style` prop 직접 주입
+1. **PressWordmark 런타임 데이터 속성** — `PressConfig`에서 오는 값만 허용: `color`, `fontWeight`, `fontFamily`, `fontStyle`, `textDecoration`, `letterSpacing`, `backgroundColor`, `borderRadius`, `padding`. 같은 컴포넌트라도 정적 레이아웃 속성(`display`, `flexWrap`, `maxWidth` 등)은 Tailwind 클래스로 작성한다.
 2. **FieldTab 프로그레스 바 width** — JS state(`progress`)를 실시간 반영하므로 `style={{ width: `${progress * 100}%` }}`
 
 그 외 픽셀 정밀 수치는 Tailwind arbitrary value(`top-[58px]`, `h-[29px]`)를 사용한다.
+
+**`@theme` 토큰 → Tailwind 유틸리티 클래스**
+
+`@theme`에 등록된 CSS 변수는 Tailwind 유틸리티 클래스를 자동 생성한다. `var(--...)` 직접 주입 대신 클래스를 사용한다.
+
+```tsx
+// ❌ 위반
+style={{ color: 'var(--color-badge-ink)' }}
+style={{ fontSize: 'var(--text-display)' }}
+style={{ letterSpacing: 'var(--tracking-ko)' }}
+
+// ✓ 올바른 사용
+className="text-badge-ink"
+className="text-display"
+className="tracking-ko"
+```
+
+네임스페이스별 생성 규칙: `--color-*` → `text-* / bg-* / border-*`, `--text-*` → `text-*`, `--tracking-*` → `tracking-*`, `--radius-*` → `rounded-*`, `--shadow-*` → `shadow-*`
 
 ### TypeScript 컨벤션
 

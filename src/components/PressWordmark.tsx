@@ -84,15 +84,7 @@ export function PressWordmark({
     : name
 
   return (
-    <div
-      style={{
-        display: 'inline-flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'center',
-        maxWidth: '88%',
-      }}
-    >
+    <div className="inline-flex flex-wrap items-center justify-center max-w-[88%]">
       <span style={baseStyle}>{textContent}{flag && <FlagGlyph />}</span>
     </div>
   )

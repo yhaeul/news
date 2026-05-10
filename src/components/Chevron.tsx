@@ -1,3 +1,8 @@
+import { twMerge } from 'tailwind-merge'
+import { clsx, type ClassValue } from 'clsx'
+
+const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
+
 interface ChevronProps {
   direction: 'left' | 'right'
   visible: boolean
@@ -24,10 +29,12 @@ export function Chevron({ direction, visible, onClick }: ChevronProps) {
       aria-label={direction === 'left' ? '이전 페이지' : '다음 페이지'}
       disabled={!visible}
       onClick={onClick}
-      className="w-[24px] h-[40px] border border-line flex items-center justify-center text-mute focus:outline-none"
-      style={{ opacity: visible ? 1 : 0 }}
+      className={cn(
+        'w-[24px] h-[40px] border border-line flex items-center justify-center text-mute focus:outline-none',
+        visible ? 'opacity-100' : 'opacity-0'
+      )}
     >
-      <span style={{ display: 'inline-flex', transform: direction === 'left' ? 'scaleX(-1)' : undefined }}>
+      <span className={cn('inline-flex', direction === 'left' && '[transform:scaleX(-1)]')}>
         <ChevronGlyph />
       </span>
     </button>

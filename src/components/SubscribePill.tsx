@@ -1,5 +1,3 @@
-import type { CSSProperties } from 'react'
-
 interface SubscribePillProps {
   isSubscribed: boolean
   onSubscribe: () => void
@@ -23,24 +21,6 @@ function MinusIcon() {
   )
 }
 
-const pillStyle: CSSProperties = {
-  height: 28,
-  padding: '0 12px',
-  borderRadius: 'var(--radius-pill)',
-  backgroundColor: 'var(--color-card)',
-  border: '1px solid var(--color-line)',
-  boxShadow: 'var(--shadow-pill)',
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: 6,
-  fontSize: 12,
-  fontWeight: 500,
-  color: 'var(--color-sub)',
-  lineHeight: 1,
-  flexShrink: 0,
-  cursor: 'pointer',
-}
-
 export function SubscribePill({ isSubscribed, onSubscribe, onUnsubscribe }: SubscribePillProps) {
   function handleClick(e: React.MouseEvent) {
     e.stopPropagation()
@@ -52,7 +32,10 @@ export function SubscribePill({ isSubscribed, onSubscribe, onUnsubscribe }: Subs
   }
 
   return (
-    <span style={pillStyle} onClick={handleClick}>
+    <span
+      className="h-[28px] px-3 rounded-pill bg-card border border-line shadow-pill inline-flex items-center gap-1.5 text-caption font-medium text-sub leading-none shrink-0 cursor-pointer"
+      onClick={handleClick}
+    >
       {isSubscribed ? <MinusIcon /> : <PlusIcon />}
       {isSubscribed ? '해지하기' : '구독하기'}
     </span>

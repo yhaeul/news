@@ -42,8 +42,7 @@ export function PressGrid({ presses, tab, page, subscribed, onOpen, onSubscribe,
 
   return (
     <div
-      className="absolute top-[256px] left-[175px] w-[930px] h-[388px] bg-line border border-line"
-      style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gridTemplateRows: 'repeat(4, 1fr)', gap: 1 }}
+      className="absolute top-[256px] left-[175px] w-[930px] h-[388px] bg-line border border-line grid grid-cols-6 grid-rows-4 gap-px"
     >
       {slots.map((slot, i) =>
         slot === null ? (
