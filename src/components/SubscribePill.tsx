@@ -1,3 +1,5 @@
+import type { MouseEvent } from 'react'
+
 interface SubscribePillProps {
   isSubscribed: boolean
   onSubscribe: () => void
@@ -22,7 +24,7 @@ function MinusIcon() {
 }
 
 export function SubscribePill({ isSubscribed, onSubscribe, onUnsubscribe }: SubscribePillProps) {
-  function handleClick(e: React.MouseEvent) {
+  function handleClick(e: MouseEvent<HTMLButtonElement>) {
     e.stopPropagation()
     if (isSubscribed) {
       onUnsubscribe()

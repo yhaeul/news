@@ -8,8 +8,11 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs))
 
-// 단일 뉴스 아이템을 표시하는 순수 UI 컴포넌트
-function TickerItemView({ item }: { item: TickerItem }) {
+interface TickerItemViewProps {
+  item: TickerItem
+}
+
+function TickerItemView({ item }: TickerItemViewProps) {
   return (
     <div className="flex-1 flex items-center gap-4 overflow-hidden">
       <span className="font-bold text-ink flex-shrink-0">{item.press}</span>
@@ -18,22 +21,16 @@ function TickerItemView({ item }: { item: TickerItem }) {
   )
 }
 
-// 한 줄의 티커(레인)를 관리하는 컴포넌트
-function TickerLane({
-  items,
-  initialDelayMs,
-  isPaused,
-  onFocus,
-  onBlur,
-  ariaLabel,
-}: {
+interface TickerLaneProps {
   items: TickerItem[]
   initialDelayMs: number
   isPaused: boolean
   onFocus: () => void
   onBlur: () => void
   ariaLabel: string
-}) {
+}
+
+function TickerLane({ items, initialDelayMs, isPaused, onFocus, onBlur, ariaLabel }: TickerLaneProps) {
   const currentIndex = useTickerRotation({
     totalItems: items.length,
     initialDelayMs,
