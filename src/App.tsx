@@ -23,6 +23,7 @@ function App() {
   const { tabKey, progress, currentInTab, handleTabChange: handleFieldTabChange } = useFieldTabProgress({
     initialTabKey: openedPressKey,
     enabled: opened !== null,
+    resetKey: opened,
   })
 
   useEffect(() => {
@@ -59,8 +60,29 @@ function App() {
     ? ALL_PRESS_PAGES
     : Math.max(1, Math.ceil(subscribed.size / PAGE_SIZE))
 
-  const showLeft = page > 0
-  const showRight = page < totalPages - 1
+  const pressIndices = tab === 'all'
+    ? presses.map((_, i) => i)
+    : presses.map((_, i) => i).filter(i => subscribed.has(i))
+  const openedPosition = opened !== null ? pressIndices.indexOf(opened) : -1
+
+  const showLeft = opened !== null ? openedPosition > 0 : page > 0
+  const showRight = opened !== null ? openedPosition < pressIndices.length - 1 : page < totalPages - 1
+
+  function handleChevronLeft() {
+    if (opened !== null) {
+      setOpened(pressIndices[openedPosition - 1])
+    } else {
+      setPage(p => p - 1)
+    }
+  }
+
+  function handleChevronRight() {
+    if (opened !== null) {
+      setOpened(pressIndices[openedPosition + 1])
+    } else {
+      setPage(p => p + 1)
+    }
+  }
 
   return (
     <div
@@ -114,11 +136,21 @@ function App() {
         )}
         {/* Chevron left — x:103, y:430 */}
         <div className="absolute top-[430px] left-[103px]">
-          <Chevron direction="left" visible={showLeft} onClick={() => setPage(p => p - 1)} />
+          <Chevron
+            direction="left"
+            visible={showLeft}
+            onClick={handleChevronLeft}
+            ariaLabel={opened !== null ? '이전 언론사' : '이전 페이지'}
+          />
         </div>
         {/* Chevron right — x:1153, y:430 */}
         <div className="absolute top-[430px] left-[1153px]">
-          <Chevron direction="right" visible={showRight} onClick={() => setPage(p => p + 1)} />
+          <Chevron
+            direction="right"
+            visible={showRight}
+            onClick={handleChevronRight}
+            ariaLabel={opened !== null ? '다음 언론사' : '다음 페이지'}
+          />
         </div>
       </div>
     </div>

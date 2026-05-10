@@ -10,6 +10,7 @@ const TICKS_PER_CYCLE = 60 // 100ms × 60 = 6000ms
 interface UseFieldTabProgressParams {
   initialTabKey: CategoryKey
   enabled: boolean
+  resetKey?: unknown
 }
 
 interface UseFieldTabProgressResult {
@@ -22,6 +23,7 @@ interface UseFieldTabProgressResult {
 export function useFieldTabProgress({
   initialTabKey,
   enabled,
+  resetKey,
 }: UseFieldTabProgressParams): UseFieldTabProgressResult {
   const [tabKey, setTabKey] = useState<CategoryKey>(initialTabKey)
   const [progress, setProgress] = useState<number>(0)
@@ -79,7 +81,7 @@ export function useFieldTabProgress({
     }, TICK_MS)
 
     return () => clearInterval(id)
-  }, [initialTabKey, enabled])
+  }, [initialTabKey, enabled, resetKey])
 
   function handleTabChange(key: CategoryKey): void {
     tabKeyRef.current = key

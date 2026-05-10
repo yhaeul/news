@@ -7,6 +7,7 @@ interface ChevronProps {
   direction: 'left' | 'right'
   visible: boolean
   onClick: () => void
+  ariaLabel?: string
 }
 
 function ChevronGlyph() {
@@ -23,10 +24,10 @@ function ChevronGlyph() {
   )
 }
 
-export function Chevron({ direction, visible, onClick }: ChevronProps) {
+export function Chevron({ direction, visible, onClick, ariaLabel }: ChevronProps) {
   return (
     <button
-      aria-label={direction === 'left' ? '이전 페이지' : '다음 페이지'}
+      aria-label={ariaLabel ?? (direction === 'left' ? '이전 페이지' : '다음 페이지')}
       disabled={!visible}
       onClick={onClick}
       className={cn(
