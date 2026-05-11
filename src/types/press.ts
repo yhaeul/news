@@ -1,6 +1,9 @@
-export interface PressWordmarkConfig {
+import type { CategoryKey } from './category'
+
+export interface PressConfig {
   name: string
   color: string
+  primaryCategory: CategoryKey
   weight: 400 | 500 | 700
   family: 'sans' | 'serif'
   italic?: boolean

@@ -40,18 +40,15 @@ function GridIcon() {
 
 export function TabBar({ activeTab, subCount, viewer, onTabChange, onViewerChange }: TabBarProps) {
   return (
-    <div
-      role="tablist"
-      className="absolute top-[208px] left-[175px] w-[930px] h-[24px] flex items-center justify-between"
-    >
+    <div className="absolute top-[208px] left-[175px] w-[930px] h-[24px] flex items-center justify-between">
       {/* Left cluster: 두 탭 + 구독 수 뱃지, gap 24px */}
-      <div className="flex items-center gap-6">
+      <div role="tablist" className="flex items-center gap-6">
         <button
           role="tab"
           aria-selected={activeTab === 'all'}
           onClick={() => onTabChange('all')}
           className={cn(
-            'text-[16px] leading-none tracking-[var(--tracking-ko)]',
+            'text-[16px] leading-none tracking-ko focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
             activeTab === 'all' ? 'font-bold text-ink' : 'font-medium text-mute',
           )}
         >
@@ -64,7 +61,7 @@ export function TabBar({ activeTab, subCount, viewer, onTabChange, onViewerChang
             aria-selected={activeTab === 'sub'}
             onClick={() => onTabChange('sub')}
             className={cn(
-              'text-[16px] leading-none tracking-[var(--tracking-ko)]',
+              'text-[16px] leading-none tracking-ko focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
               activeTab === 'sub' ? 'font-bold text-ink' : 'font-medium text-mute',
             )}
           >
@@ -76,10 +73,7 @@ export function TabBar({ activeTab, subCount, viewer, onTabChange, onViewerChang
             aria-label={`구독 중인 언론사 ${subCount}곳`}
             className="w-5 h-5 rounded-badge bg-accent flex items-center justify-center"
           >
-            <span
-              className="text-[12px] font-medium leading-none"
-              style={{ color: 'rgba(255,255,255,0.7)' }}
-            >
+            <span className="text-[12px] font-medium leading-none text-badge-ink">
               {subCount}
             </span>
           </div>
@@ -91,14 +85,20 @@ export function TabBar({ activeTab, subCount, viewer, onTabChange, onViewerChang
         <button
           aria-label="리스트 뷰"
           onClick={() => onViewerChange('list')}
-          className={viewer === 'list' ? 'text-ink' : 'text-mute'}
+          className={cn(
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
+            viewer === 'list' ? 'text-ink' : 'text-mute',
+          )}
         >
           <ListIcon />
         </button>
         <button
           aria-label="그리드 뷰"
           onClick={() => onViewerChange('grid')}
-          className={viewer === 'grid' ? 'text-ink' : 'text-mute'}
+          className={cn(
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
+            viewer === 'grid' ? 'text-ink' : 'text-mute',
+          )}
         >
           <GridIcon />
         </button>

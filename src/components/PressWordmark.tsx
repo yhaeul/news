@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import type { PressWordmarkConfig } from '../types/press'
+import type { PressConfig } from '../types/press'
 
 function FlagGlyph() {
   return (
@@ -9,8 +9,8 @@ function FlagGlyph() {
       viewBox="0 0 8 10"
       style={{ display: 'inline', marginLeft: '2px', verticalAlign: 'middle' }}
     >
-      <line x1="1" y1="0" x2="1" y2="10" stroke="#E00000" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M1 1L8 3.5L1 6Z" fill="#E00000" />
+      <line x1="1" y1="0" x2="1" y2="10" stroke="var(--color-flag)" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M1 1L8 3.5L1 6Z" fill="var(--color-flag)" />
     </svg>
   )
 }
@@ -31,7 +31,7 @@ export function PressWordmark({
   flag = false, // 아시아경제 전용
   latin = false,
   small = false,
-}: PressWordmarkConfig) {
+}: PressConfig) {
   const fontFamily = family === 'serif' ? 'var(--font-serif)' : 'var(--font-sans)'
   const letterSpacing = tracking ?? (latin ? '0em' : '-0.01em')
   const fontSize = small ? '14px' : '16px'
@@ -67,7 +67,7 @@ export function PressWordmark({
             charStyle.backgroundColor = accent
             charStyle.borderRadius = 'var(--radius-sub)'
             charStyle.padding = '1px 3px'
-            charStyle.color = '#fff'
+            charStyle.color = 'var(--color-card)'
           } else {
             charStyle.color = accent
           }
@@ -84,15 +84,7 @@ export function PressWordmark({
     : name
 
   return (
-    <div
-      style={{
-        display: 'inline-flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'center',
-        maxWidth: '88%',
-      }}
-    >
+    <div className="inline-flex flex-wrap items-center justify-center max-w-[88%]">
       <span style={baseStyle}>{textContent}{flag && <FlagGlyph />}</span>
     </div>
   )
